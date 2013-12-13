@@ -5,7 +5,9 @@
 void spawnThreads(int n, int x);
 void *dummy_function(void *arg);
 
-int main(void)
+#define foo 100000 
+
+int main(int argc, char *argv[])
 {
   int n = 6;
   int x = 100000;
