@@ -26,11 +26,16 @@ int main()
 {
   printf("hi\n");
   initialize_queue();
+
   for (int i = 0; i < 10; i++)
     enqueue(i);
 
+
   int value;
-  for (
+  while (dequeue(&value) == 0) {
+    printf("value: %d\n", value);
+  }
+
   return 0;
 }
 
@@ -57,6 +62,7 @@ void enqueue(int val)
   new->val = val;
   new->next = NULL;
 
+  global->tail->next = new;
   global->tail = new;
   
   pthread_mutex_unlock(&global->mutex);
@@ -66,17 +72,17 @@ void enqueue(int val)
 int dequeue(int *extractedValue)
 {
   /* queue is logically empty */
-  if (global->head == NULL) {
+  if (global->head->next == NULL) {
     return 1;
   }
 
   pthread_mutex_lock(&global->mutex);
 
-  struct list *head = global->head;
+  struct list *old = global->head;
   
-  *extractedValue = head->next->val;
-  global->head = head->next;
-  free(head);
+  global->head = old->next;
+  *extractedValue = global->head->val;
+  free(old);
   
   pthread_mutex_unlock(&global->mutex);
   
