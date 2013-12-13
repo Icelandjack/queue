@@ -1,7 +1,5 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <string.h>
-#include <errno.h>
 #include <pthread.h>
 #include <sys/time.h>
 
@@ -23,23 +21,23 @@ struct queue {
   struct list    *tail;
 };
 
-int main()
-{
-  printf("hi\n");
-  initialize_queue();
+/* int main() */
+/* { */
+/*   printf("hi\n"); */
+/*   initialize_queue(); */
 
-  enqueue(5);
-  for (int i = 0; i < 100; i++)
-    enqueue(i);
+/*   enqueue(5); */
+/*   for (int i = 0; i < 100; i++) */
+/*     enqueue(i); */
 
 
-  int value;
-  while (dequeue(&value) == 0) {
-    printf("value: %d\n", value);
-  }
+/*   int value; */
+/*   while (dequeue(&value) == 0) { */
+/*     printf("value: %d\n", value); */
+/*   } */
 
-  return 0;
-}
+/*   return 0; */
+/* } */
 
 void initialize_queue(void)
 {

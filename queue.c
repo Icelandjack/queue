@@ -22,22 +22,22 @@ struct queue {
   struct list    *tail;
 };
 
-int main()
-{
-  printf("hi\n");
-  initialize_queue();
+/* int main() */
+/* { */
+/*   printf("hi\n"); */
+/*   initialize_queue(); */
 
-  for (int i = 0; i < 10; i++)
-    enqueue(i);
+/*   for (int i = 0; i < 10; i++) */
+/*     enqueue(i); */
 
 
-  int value;
-  while (dequeue(&value) == 0) {
-    printf("value: %d\n", value);
-  }
+/*   int value; */
+/*   while (dequeue(&value) == 0) { */
+/*     printf("value: %d\n", value); */
+/*   } */
 
-  return 0;
-}
+/*   return 0; */
+/* } */
 
 void initialize_queue(void)
 {
